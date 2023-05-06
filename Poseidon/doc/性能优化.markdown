@@ -1,0 +1,20 @@
+- [lua优化](#lua优化)
+  - [lua profiler](#lua-profiler)
+  - [lua与c#的交互优化](#lua与c的交互优化)
+    - [lua 和 C# 初始化调用的性能开销](#lua-和-c-初始化调用的性能开销)
+
+# lua优化
+
+## lua profiler
+
+## lua与c#的交互优化
+
+### lua 和 C# 初始化调用的性能开销
+```mermaid
+sequenceDiagram
+c# ->> lua:BindUnityObj = m_scriptEnv.Get<Action<LuaTable>>("BindUnityObj")
+c# ->> lua:BindUnityObj?.Invoke(m_scriptEnv)
+Note right of c# :BindUnityObj为绑定好的lua方法
+lua -->> c# :luaBehaviour:GetGameObjectChildAt(0)
+Note right of c# :通过索引值来获取对象
+```
